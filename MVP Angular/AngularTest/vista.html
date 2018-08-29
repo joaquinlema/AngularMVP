@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app= "miapp">
+<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+<script src = "controlador/controlador.js"></script>
+<head>
+	<title></title>
+</head>
+<body ng-controller = "jugadoresController">
+
+<div>
+	Enter first Name: <input type="text" ng-model = "jugador.nombre">
+	<br>
+	Enter last Name: <input type="text" ng-model = "jugador.apellido">
+	<br>
+	Enter dni: <input type="text" ng-model = "jugador.dni">
+	<br>
+	Nombre completo: {{jugador.nombreCompleto()}}
+		<br>
+	Datos completo: {{jugador.datosCompleto()}}
+			<br>
+	Datos completo uppercase: {{jugador.datosCompleto() | uppercase}}
+				<br>
+	Datos completo lowercase: {{jugador.datosCompleto() | lowercase}}
+</div>
+
+
+<div ng-init = "clientes = [{nombre : 'juan'},{nombre : 'carlos'},{nombre : 'lucas'}]">
+<p>Ingrese nombre de cliente<input type="text" ng-model = "cliente.nombre"></p>
+
+	<ol><li ng-repeat = "cliente in clientes | filter : cliente.nombre ">
+		{{cliente.nombre}}
+		</li>
+	</ol>	
+</div>
+</body>
+</html>
